@@ -50,7 +50,7 @@ export const authApi = createApi({
     }),
     register: builder.mutation({
       query: (data) => ({
-        url: '/auth/register',
+        url: '/identity/api/Auth/register',
         method: 'POST',
         body: data,
       }),
