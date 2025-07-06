@@ -1,41 +1,20 @@
-import { useState } from 'react';
-import { useSelector } from 'react-redux';
-import { FaBars } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
-import styles from '../../styles/components/sidebars/ToolSidebar.module.scss';
+import { FaSearch, FaBullseye } from 'react-icons/fa';
+import Sidebar from './Sidebar';
 
-const ToolSidebar = () => {
-  const [open, setOpen] = useState(true);
-  const [screenerOpen, setScreenerOpen] = useState(false);
-  const { user } = useSelector((state) => state.auth);
+const items = [
+  {
+    label: 'Screener',
+    icon: <FaSearch />,
+    subItems: [
+      { label: 'Web Version', to: '/screener/web' },
+      { label: 'Templates', to: '/screener/templates' },
+      { label: 'Screeners', to: '/screener/screeners' },
+      { label: 'Notification Templates', to: '/screener/notifications' },
+    ],
+  },
+  { label: 'Scanner', icon: <FaBullseye />, to: '/scanner' },
+];
 
-  return (
-    <aside className={styles.sidebar} data-open={open}>
-      <div className={styles.header}>
-        <div className={styles.userInfo}>
-          <img className={styles.avatar} src={user?.avatar || '/logo192.png'} alt="avatar" />
-          <span>Hey 👋, {user?.username || 'User'}</span>
-        </div>
-        <FaBars className={styles.toggle} onClick={() => setOpen((o) => !o)} />
-      </div>
-      <nav className={styles.menu}>
-        <div className={styles.item}>
-          <div className={styles.link} onClick={() => setScreenerOpen((o) => !o)}>Screener</div>
-          {screenerOpen && (
-            <div className={styles.submenu}>
-              <Link to="/screener/web" className={styles.sublink}>Web Version</Link>
-              <Link to="/screener/templates" className={styles.sublink}>Templates</Link>
-              <Link to="/screener/screeners" className={styles.sublink}>Screeners</Link>
-              <Link to="/screener/notifications" className={styles.sublink}>Notification Templates</Link>
-            </div>
-          )}
-        </div>
-        <div className={styles.item}>
-          <Link to="/scanner" className={styles.link}>Scanner</Link>
-        </div>
-      </nav>
-    </aside>
-  );
-};
+const ToolSidebar = (props) => <Sidebar items={items} {...props} />;
 
 export default ToolSidebar;

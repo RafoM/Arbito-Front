@@ -1,0 +1,88 @@
+.sidebar {
+  width: 250px;
+  background: #fff;
+  border-right: 1px solid #eee;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  transition: width 0.2s;
+
+  &[data-collapsed='true'] {
+    width: 60px;
+
+    .label,
+    .submenu {
+      display: none;
+    }
+  }
+}
+
+.top {
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+}
+
+.collapseToggle {
+  margin-left: auto;
+  cursor: pointer;
+}
+
+.menu {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+
+  &.active {
+    background: rgba(128, 0, 128, 0.2);
+  }
+}
+
+.group {
+  display: flex;
+  flex-direction: column;
+}
+
+.submenu {
+  display: flex;
+  flex-direction: column;
+  padding-left: 1.5rem;
+}
+
+.sublink {
+  padding: 0.25rem 0;
+  text-decoration: none;
+  color: inherit;
+
+  &.active {
+    background: rgba(128, 0, 128, 0.2);
+  }
+}
+
+.logout {
+  margin-top: auto;
+  padding: 0.5rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
