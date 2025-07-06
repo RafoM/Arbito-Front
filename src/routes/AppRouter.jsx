@@ -1,11 +1,18 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import MainLayout from '../layouts/MainLayout';
 import AuthLayout from '../layouts/AuthLayout';
-import {ProtectedRoute} from '../components/routing/ProtectedRoute';
+import LandingLayout from '../layouts/LandingLayout';
+import { ProtectedRoute } from '../components/routing/ProtectedRoute';
+import HeaderLanding from '../components/layouts/headers/HeaderLanding';
+import HeaderAuthPages from '../components/layouts/headers/HeaderAuthPages';
+import HeaderMain from '../components/layouts/headers/HeaderMain';
 
 import LandingPage from '../pages/Landing';
+import EarlyAccessPage from '../pages/EarlyAccessPage';
 import LoginPage from '../pages/Login';
 import RegisterPage from '../pages/RegisterPage';
+import ForgotPasswordPage from '../pages/ForgotPasswordPage';
+import VerifyEmailPage from '../pages/VerifyEmailPage';
 import BlogPage from '../pages/BlogPage';
 import BlogDetailsPage from '../pages/BlogDetailsPage';
 import CasePage from '../pages/CasePage';
@@ -25,15 +32,22 @@ import NotFound from '../pages/NotFound';
 const AppRouter = () => (
   <BrowserRouter>
     <Routes>
+      {/* Landing routes */}
+      <Route element={<LandingLayout header={<HeaderLanding />} />}>
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/early-access" element={<EarlyAccessPage />} />
+      </Route>
+
       {/* Auth routes */}
-      <Route element={<AuthLayout />}>
+      <Route element={<AuthLayout header={<HeaderAuthPages />} />}>
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />
+        <Route path="/forgot-password" element={<ForgotPasswordPage />} />
+        <Route path="/verify-email" element={<VerifyEmailPage />} />
       </Route>
 
       {/* Public routes */}
-      <Route element={<MainLayout />}>
-        <Route path="/" element={<LandingPage />} />
+      <Route element={<MainLayout header={<HeaderMain />} />}>
         <Route path="/blog" element={<BlogPage />} />
         <Route path="/blog/:id" element={<BlogDetailsPage />} />
         <Route path="/cases" element={<CasePage />} />
@@ -42,7 +56,7 @@ const AppRouter = () => (
       </Route>
 
       {/* Protected routes */}
-      <Route element={<ProtectedRoute><MainLayout /></ProtectedRoute>}>
+      <Route element={<ProtectedRoute><MainLayout header={<HeaderMain />} /></ProtectedRoute>}>
         <Route path="/dashboard" element={<DashboardPage />} />
         <Route path="/referrals/activity" element={<ReferralActivityPage />} />
         <Route path="/referrals/withdrawals" element={<ReferralWithdrawalsPage />} />

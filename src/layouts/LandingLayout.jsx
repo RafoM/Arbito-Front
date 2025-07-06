@@ -1,6 +1,6 @@
 import { Outlet } from 'react-router-dom';
 
-const AuthLayout = ({ header }) => (
+const LandingLayout = ({ header }) => (
   <div>
     {header}
     <main>
@@ -9,4 +9,4 @@ const AuthLayout = ({ header }) => (
   </div>
 );
 
-export default AuthLayout;
+export default LandingLayout;
