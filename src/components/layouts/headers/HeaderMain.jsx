@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { mainStyles as styles } from '../../../styles/components/headers';
+import { LanguageSwitcher } from '../../common/LanguageSwitcher';
 
 const HeaderMain = () => {
   const { user } = useSelector((state) => state.auth);
@@ -15,6 +16,7 @@ const HeaderMain = () => {
         </nav>
       </div>
       <div className={styles.actions}>
+        <LanguageSwitcher />
         {user ? (
           <>
             <Link to="/notifications">Notifications</Link>
