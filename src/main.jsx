@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import App from './App';
 import { Provider } from 'react-redux';
 import { store } from './store';
+import { setupListeners } from '@reduxjs/toolkit/query';
 import './i18n/i18n';
 import './styles/main.scss';
 
@@ -12,5 +13,7 @@ root.render(
     <App />
   </Provider>
 );
+
+setupListeners(store.dispatch);
 
 
