@@ -1,8 +1,8 @@
 import { Outlet } from 'react-router-dom';
 
-const MainLayout = () => (
+const MainLayout = ({ header }) => (
   <div>
-    <header>Header</header>
+    {header}
     <aside>Sidebar</aside>
     <main>
       <Outlet />
