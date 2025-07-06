@@ -6,6 +6,8 @@ import { ProtectedRoute } from '../components/routing/ProtectedRoute';
 import HeaderLanding from '../components/layouts/headers/HeaderLanding';
 import HeaderAuthPages from '../components/layouts/headers/HeaderAuthPages';
 import HeaderMain from '../components/layouts/headers/HeaderMain';
+import ToolSidebar from '../components/Sidebars/ToolSidebar';
+import UserSidebar from '../components/Sidebars/UserSidebar';
 
 import LandingPage from '../pages/Landing';
 import EarlyAccessPage from '../pages/EarlyAccessPage';
@@ -55,15 +57,19 @@ const AppRouter = () => (
         <Route path="/tutorials" element={<TutorialsPage />} />
       </Route>
 
-      {/* Protected routes */}
-      <Route element={<ProtectedRoute><MainLayout header={<HeaderMain />} /></ProtectedRoute>}>
+      {/* Protected routes - user dashboard */}
+      <Route element={<ProtectedRoute><MainLayout header={<HeaderMain />} sidebar={<UserSidebar />} /></ProtectedRoute>}>
         <Route path="/dashboard" element={<DashboardPage />} />
         <Route path="/referrals/activity" element={<ReferralActivityPage />} />
         <Route path="/referrals/withdrawals" element={<ReferralWithdrawalsPage />} />
-        <Route path="/scanner" element={<ScannerDashboardPage />} />
         <Route path="/payments/history" element={<PaymentHistoryPage />} />
         <Route path="/settings" element={<UserSettingsPage />} />
         <Route path="/notifications" element={<NotificationsPage />} />
+      </Route>
+
+      {/* Protected routes - tools */}
+      <Route element={<ProtectedRoute><MainLayout header={<HeaderMain />} sidebar={<ToolSidebar />} /></ProtectedRoute>}>
+        <Route path="/scanner" element={<ScannerDashboardPage />} />
       </Route>
 
       {/* Fallback */}

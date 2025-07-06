@@ -3,6 +3,7 @@ import AppRouter from './routes/AppRouter';
 import { ThemeProvider } from './contexts/ThemeContext';
 import { LanguageProvider } from './contexts/LanguageContext';
 import { UIProvider } from './contexts/UIContext';
+import './styles/index.scss';
 
 const App = () => {
   return (

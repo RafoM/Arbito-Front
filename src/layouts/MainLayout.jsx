@@ -1,9 +1,9 @@
 import { Outlet } from 'react-router-dom';
 
-const MainLayout = ({ header }) => (
+const MainLayout = ({ header, sidebar }) => (
   <div>
     {header}
-    <aside>Sidebar</aside>
+    {sidebar && <aside>{sidebar}</aside>}
     <main>
       <Outlet />
     </main>
