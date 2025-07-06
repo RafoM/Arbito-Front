@@ -6,6 +6,7 @@
   flex-direction: column;
   height: 100vh;
   transition: width 0.2s;
+  position: relative;
 
   &[data-collapsed='true'] {
     width: 60px;
@@ -32,6 +33,18 @@
 
 .collapseToggle {
   margin-left: auto;
+  cursor: pointer;
+}
+
+.expandToggle {
+  position: absolute;
+  top: 50%;
+  right: -12px;
+  transform: translateY(-50%);
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 50%;
+  padding: 0.25rem;
   cursor: pointer;
 }
 

@@ -1,23 +1,34 @@
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
-import { FaBars, FaSignOutAlt, FaChevronDown, FaChevronUp } from 'react-icons/fa';
+import {
+  FaSignOutAlt,
+  FaChevronDown,
+  FaChevronUp,
+  FaChevronLeft,
+  FaChevronRight,
+} from 'react-icons/fa';
 import styles from '../../styles/components/sidebars/Sidebar.module.scss';
 
-const Sidebar = ({ items = [], collapsed = false, onCollapse }) => {
+const Sidebar = ({ items = [] }) => {
   const { user } = useSelector((state) => state.auth);
   const [openIndex, setOpenIndex] = useState(null);
+  const [isOpen, setIsOpen] = useState(true);
 
   const toggleSubmenu = (idx) => {
     setOpenIndex((prev) => (prev === idx ? null : idx));
   };
 
+  const toggleSidebar = () => {
+    setIsOpen((prev) => !prev);
+  };
+
   return (
-    <aside className={styles.sidebar} data-collapsed={collapsed}>
+    <aside className={styles.sidebar} data-collapsed={!isOpen}>
       <div className={styles.top}>
         <img className={styles.avatar} src={user?.avatar || '/logo192.png'} alt="avatar" />
-        {!collapsed && <span className={styles.greeting}>Hey 👋 {user?.username || 'User'}</span>}
-        {!collapsed && <FaBars className={styles.collapseToggle} onClick={onCollapse} />}
+        {isOpen && <span className={styles.greeting}>Hey 👋 {user?.username || 'User'}</span>}
+        {isOpen && <FaChevronLeft className={styles.collapseToggle} onClick={toggleSidebar} />}
       </div>
       <nav className={styles.menu}>
         {items.map((item, idx) => (
@@ -26,15 +37,15 @@ const Sidebar = ({ items = [], collapsed = false, onCollapse }) => {
               <div
                 className={styles.link}
                 onClick={() => toggleSubmenu(idx)}
-                title={collapsed ? item.label : undefined}
+                title={!isOpen ? item.label : undefined}
               >
                 {item.icon}
-                {!collapsed && <span className={styles.label}>{item.label}</span>}
-                {!collapsed && (
+                {isOpen && <span className={styles.label}>{item.label}</span>}
+                {isOpen && (
                   openIndex === idx ? <FaChevronUp className={styles.arrow} /> : <FaChevronDown className={styles.arrow} />
                 )}
               </div>
-              {openIndex === idx && !collapsed && (
+              {openIndex === idx && isOpen && (
                 <div className={styles.submenu}>
                   {item.subItems.map((sub) => (
                     <NavLink
@@ -54,18 +65,21 @@ const Sidebar = ({ items = [], collapsed = false, onCollapse }) => {
               key={item.label}
               to={item.to}
               className={({ isActive }) => `${styles.link} ${isActive ? styles.active : ''}`}
-              title={collapsed ? item.label : undefined}
+              title={!isOpen ? item.label : undefined}
             >
               {item.icon}
-              {!collapsed && <span className={styles.label}>{item.label}</span>}
+              {isOpen && <span className={styles.label}>{item.label}</span>}
             </NavLink>
           )
         ))}
       </nav>
-      <button className={styles.logout} title={collapsed ? 'Logout' : undefined}>
+      <button className={styles.logout} title={!isOpen ? 'Logout' : undefined}>
         <FaSignOutAlt />
-        {!collapsed && <span>Logout</span>}
+        {isOpen && <span>Logout</span>}
       </button>
+      {!isOpen && (
+        <FaChevronRight className={styles.expandToggle} onClick={toggleSidebar} />
+      )}
     </aside>
   );
 };
