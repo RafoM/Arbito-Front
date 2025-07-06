@@ -28,8 +28,11 @@ const Sidebar = ({ items = [] }) => {
       <div className={styles.top}>
         <img className={styles.avatar} src={user?.avatar || '/logo192.png'} alt="avatar" />
         {isOpen && <span className={styles.greeting}>Hey 👋 {user?.username || 'User'}</span>}
-        {isOpen && <FaChevronLeft className={styles.collapseToggle} onClick={toggleSidebar} />}
-      </div>
+          {isOpen ? (
+              <FaChevronLeft className={styles.collapseToggle} onClick={toggleSidebar} />
+          ) : (
+              <FaChevronRight className={styles.expandToggle} onClick={toggleSidebar} />
+          )}      </div>
       <nav className={styles.menu}>
         {items.map((item, idx) => (
           item.subItems ? (
@@ -77,9 +80,9 @@ const Sidebar = ({ items = [] }) => {
         <FaSignOutAlt />
         {isOpen && <span>Logout</span>}
       </button>
-      {!isOpen && (
-        <FaChevronRight className={styles.expandToggle} onClick={toggleSidebar} />
-      )}
+      {/*{!isOpen && (*/}
+      {/*  <FaChevronRight className={styles.expandToggle} onClick={toggleSidebar} />*/}
+      {/*)}*/}
     </aside>
   );
 };

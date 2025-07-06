@@ -9,7 +9,7 @@
   position: relative;
 
   &[data-collapsed='true'] {
-    width: 60px;
+    width: 80px;
 
     .label,
     .submenu {
@@ -19,7 +19,7 @@
 }
 
 .top {
-  padding: 1rem;
+  padding: 0.5rem;
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -32,21 +32,21 @@
 }
 
 .collapseToggle {
-  margin-left: auto;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
   cursor: pointer;
 }
 
 .expandToggle {
   position: absolute;
-  top: 50%;
-  right: -12px;
-  transform: translateY(-50%);
-  background: #fff;
-  border: 1px solid #eee;
+  top: 0.5rem;
+  right: 0.5rem;
+  background-color: #fff;
   border-radius: 50%;
-  padding: 0.25rem;
+  padding: 4px;
   cursor: pointer;
-  z-index: 5;
+  height: 2em;
 }
 
 .menu {
