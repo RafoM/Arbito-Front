@@ -1,4 +1,5 @@
 import { Outlet } from 'react-router-dom';
+import Footer from '../components/Footer/Footer';
 
 const LandingLayout = ({ header }) => (
   <div>
@@ -6,6 +7,7 @@ const LandingLayout = ({ header }) => (
     <main>
       <Outlet />
     </main>
+    <Footer />
   </div>
 );
 

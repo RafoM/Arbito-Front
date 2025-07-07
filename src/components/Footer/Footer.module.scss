@@ -1,0 +1,85 @@
+.footer {
+  background: var(--Background-Dark, #080411);
+  color: #fff;
+  padding: 2rem 1rem;
+}
+
+.topSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.logo {
+  width: 120px;
+  margin-bottom: 0.5rem;
+}
+
+.slogan {
+  font-size: 0.875rem;
+}
+
+.social {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.icon {
+  color: #fff;
+  font-size: 1.25rem;
+}
+
+.middleSection {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.contact {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.bottomSection {
+  text-align: center;
+  font-size: 0.75rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 1rem;
+}
+
+@media (min-width: 768px) {
+  .topSection {
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: left;
+  }
+
+  .middleSection {
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: left;
+  }
+
+  .nav {
+    flex-direction: row;
+  }
+}
