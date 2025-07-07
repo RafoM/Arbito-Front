@@ -19,7 +19,7 @@ const HeaderLanding = () => {
         </nav>
       </div>
       <div className={styles.actions}>
-        <LanguageSwitcher />
+        <LanguageSwitcher/>
         {user ? (
           <>
             <Link to="/notifications">Notifications</Link>

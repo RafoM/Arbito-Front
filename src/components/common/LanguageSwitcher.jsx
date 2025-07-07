@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import globeIcon from '../../assets/images/globe.svg';
 import styles from '../../styles/components/LanguageSwitcher.module.scss';
+
+const globeIcon = '/assets/images/globe.png';
 
 export const LanguageSwitcher = () => {
   const { i18n } = useTranslation();

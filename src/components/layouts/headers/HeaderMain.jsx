@@ -19,7 +19,7 @@ const HeaderMain = () => {
         </nav>
       </div>
       <div className={styles.actions}>
-        <LanguageSwitcher />
+        <LanguageSwitcher/>
         {user ? (
           <>
             <Link to="/notifications">Notifications</Link>
