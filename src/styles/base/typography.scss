@@ -1,4 +1,16 @@
-/* Typography styles */
+/* Global typography rules */
+
 body {
-  font-family: sans-serif;
+  font-family: var(--font-family-base);
+  line-height: 1.5;
+  color: #333;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-family-sf);
+  font-weight: 500;
+  margin: 0 0 0.5rem;
+}
+p {
+  margin: 0 0 1rem;
 }
