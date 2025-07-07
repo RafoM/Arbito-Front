@@ -3,9 +3,7 @@ import MainLayout from '../layouts/MainLayout';
 import AuthLayout from '../layouts/AuthLayout';
 import LandingLayout from '../layouts/LandingLayout';
 import { ProtectedRoute } from '../components/routing/ProtectedRoute';
-import HeaderLanding from '../components/layouts/headers/HeaderLanding';
-import HeaderAuthPages from '../components/layouts/headers/HeaderAuthPages';
-import HeaderMain from '../components/layouts/headers/HeaderMain';
+import Header from '../components/layouts/headers/Header';
 import ToolSidebar from '../components/Sidebars/ToolSidebar';
 import UserSidebar from '../components/Sidebars/UserSidebar';
 
@@ -35,13 +33,13 @@ const AppRouter = () => (
   <BrowserRouter>
     <Routes>
       {/* Landing routes */}
-      <Route element={<LandingLayout header={<HeaderLanding />} />}>
+      <Route element={<LandingLayout header={<Header variant="landing" />} />}>
         <Route path="/" element={<LandingPage />} />
         <Route path="/early-access" element={<EarlyAccessPage />} />
       </Route>
 
       {/* Auth routes */}
-      <Route element={<AuthLayout header={<HeaderAuthPages />} />}>
+      <Route element={<AuthLayout header={<Header variant="auth" />} />}>
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/forgot-password" element={<ForgotPasswordPage />} />
@@ -49,7 +47,7 @@ const AppRouter = () => (
       </Route>
 
       {/* Public routes */}
-      <Route element={<MainLayout header={<HeaderMain />} />}>
+      <Route element={<MainLayout header={<Header variant="main" />} />}>
         <Route path="/blog" element={<BlogPage />} />
         <Route path="/blog/:id" element={<BlogDetailsPage />} />
         <Route path="/cases" element={<CasePage />} />
@@ -58,7 +56,7 @@ const AppRouter = () => (
       </Route>
 
       {/* Protected routes - user dashboard */}
-      <Route element={<ProtectedRoute><MainLayout header={<HeaderMain />} sidebar={<UserSidebar />} /></ProtectedRoute>}>
+      <Route element={<ProtectedRoute><MainLayout header={<Header variant="main" />} sidebar={<UserSidebar />} /></ProtectedRoute>}>
         <Route path="/dashboard" element={<DashboardPage />} />
         <Route path="/referrals/activity" element={<ReferralActivityPage />} />
         <Route path="/referrals/withdrawals" element={<ReferralWithdrawalsPage />} />
@@ -68,7 +66,7 @@ const AppRouter = () => (
       </Route>
 
       {/* Protected routes - tools */}
-      <Route element={<ProtectedRoute><MainLayout header={<HeaderMain />} sidebar={<ToolSidebar />} /></ProtectedRoute>}>
+      <Route element={<ProtectedRoute><MainLayout header={<Header variant="main" />} sidebar={<ToolSidebar />} /></ProtectedRoute>}>
         <Route path="/scanner" element={<ScannerDashboardPage />} />
       </Route>
 
