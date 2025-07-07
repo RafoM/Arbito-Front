@@ -1,0 +1,10 @@
+$font-family-ibm: 'IBM Plex Sans', sans-serif;
+$font-family-sf: 'SF Pro Display', sans-serif;
+
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;700&display=swap');
+@import url('https://fonts.cdnfonts.com/css/sf-pro-display');
+
+:root {
+  --font-family-base: #{$font-family-ibm};
+  --font-family-sf: #{$font-family-sf};
+}
