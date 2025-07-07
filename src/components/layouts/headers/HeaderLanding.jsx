@@ -9,12 +9,13 @@ const HeaderLanding = () => {
   return (
     <header className={styles.header}>
       <div className={styles.left}>
-        <img src="/logo192.png" alt="Logo" className={styles.logo} />
+        <img src="/assets/images/header_logo.png" alt="Logo" className={styles.logo} />
         <nav className={styles.nav}>
-          <Link to="/features">Features</Link>
-          <Link to="/blog">Blog</Link>
-          <Link to="/cases">Cases</Link>
-          <Link to="/tutorials">Tutorials</Link>
+            <Link to="/Tools">Tools</Link>
+            <Link to="/About">About</Link>
+            <Link to="/Learn">Learn</Link>
+            <Link to="/Plans">Plans</Link>
+            <Link to="/Blog">Blog</Link>
         </nav>
       </div>
       <div className={styles.actions}>

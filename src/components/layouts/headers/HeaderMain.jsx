@@ -9,10 +9,13 @@ const HeaderMain = () => {
   return (
     <header className={styles.header}>
       <div className={styles.left}>
-        <img src="/logo192.png" alt="Logo" className={styles.logo} />
+        <img src="/assets/images/header_logo.png" alt="Logo" className={styles.logo} />
         <nav className={styles.nav}>
-          <Link to="/dashboard">Dashboard</Link>
-          <Link to="/settings">Settings</Link>
+            <Link to="/Tools">Tools</Link>
+            <Link to="/About">About</Link>
+            <Link to="/Learn">Learn</Link>
+            <Link to="/Plans">Plans</Link>
+            <Link to="/Blog">Blog</Link>
         </nav>
       </div>
       <div className={styles.actions}>

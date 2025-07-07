@@ -8,21 +8,25 @@ const HeaderAuthPages = () => {
 
   return (
     <header className={styles.header}>
-      <img src="/logo192.png" alt="Logo" className={styles.logo} />
-      <div className={styles.actions}>
-        <LanguageSwitcher />
-        {user ? (
-          <>
-            <Link to="/notifications">Notifications</Link>
-            <img src={user.avatar || '/logo192.png'} alt="Avatar" className={styles.avatar} />
-          </>
-        ) : (
-          <>
-            <Link to="/login">Login</Link>
-            <Link to="/register" className={styles.cta}>Get Started</Link>
-          </>
-        )}
-      </div>
+            <img src="/assets/images/header_logo.png" alt="Logo" className={styles.logo}/>
+            <div className={styles.actions}>
+                <LanguageSwitcher/>
+                <Link to="/Tools">Tools</Link>
+                <Link to="/About">About</Link>
+                <Link to="/Learn">Learn</Link>
+                <Link to="/Plans">Plans</Link>
+                <Link to="/Blog">Blog</Link>
+                {user ? (
+                    <>
+                        <img src={user.avatar || '/logo192.png'} alt="Avatar" className={styles.avatar}/>
+                    </>
+                ) : (
+                    <>
+                        <Link to="/login">Login</Link>
+                        <Link to="/register" className={styles.cta}>Get Started</Link>
+                    </>
+                )}
+            </div>
     </header>
   );
 };
