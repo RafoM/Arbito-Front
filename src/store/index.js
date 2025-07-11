@@ -15,6 +15,7 @@ import {
   blogApi,
   casesApi,
   tutorialsApi,
+  contentApi,
 } from './api';
 
 export const store = configureStore({
@@ -34,6 +35,7 @@ export const store = configureStore({
     [blogApi.reducerPath]: blogApi.reducer,
     [casesApi.reducerPath]: casesApi.reducer,
     [tutorialsApi.reducerPath]: tutorialsApi.reducer,
+    [contentApi.reducerPath]: contentApi.reducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat(
@@ -51,6 +53,7 @@ export const store = configureStore({
       blogApi.middleware,
       casesApi.middleware,
       tutorialsApi.middleware,
+      contentApi.middleware,
     ),
 });
 

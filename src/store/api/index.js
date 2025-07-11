@@ -12,3 +12,4 @@ export { notificationBotsApi } from './notificationBotsApi';
 export { blogApi } from './blogApi';
 export { casesApi } from './casesApi';
 export { tutorialsApi } from './tutorialsApi';
+export { contentApi } from './contentApi';
