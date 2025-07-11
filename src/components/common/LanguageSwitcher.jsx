@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useGetAvailableLanguagesQuery } from '../../store/api/contentApi';
 import styles from '../../styles/components/LanguageSwitcher.module.scss';
 
 const globeIcon = '/assets/images/globe.png';
@@ -8,16 +9,12 @@ export const LanguageSwitcher = () => {
   const { i18n } = useTranslation();
   const [open, setOpen] = useState(false);
 
-  const languages = [
-    { code: 'en', label: 'English' },
-    { code: 'ru', label: 'Russian' },
-    { code: 'hy', label: 'Armenian' },
-  ];
+  const { data: languages, isLoading, isError } = useGetAvailableLanguagesQuery();
 
   const toggle = () => setOpen((prev) => !prev);
 
   const selectLanguage = (code) => {
-    i18n.changeLanguage(code);
+    i18n.changeLanguage(code.toLowerCase());
     setOpen(false);
   };
 
@@ -32,15 +29,23 @@ export const LanguageSwitcher = () => {
       </div>
       {open && (
         <ul className={styles.dropdown}>
-          {languages.map((lng) => (
-            <li
-              key={lng.code}
-              className={styles.option}
-              onClick={() => selectLanguage(lng.code)}
-            >
-              {lng.label} ({lng.code.toUpperCase()})
-            </li>
-          ))}
+          {isLoading && (
+            <li className={styles.option}>Loading...</li>
+          )}
+          {isError && (
+            <li className={styles.option}>Failed to load</li>
+          )}
+          {!isLoading && !isError &&
+            Array.isArray(languages) &&
+            languages.map((lng) => (
+              <li
+                key={lng.cultureCode}
+                className={styles.option}
+                onClick={() => selectLanguage(lng.cultureCode)}
+              >
+                {lng.displayName} ({lng.cultureCode})
+              </li>
+            ))}
         </ul>
       )}
     </div>
