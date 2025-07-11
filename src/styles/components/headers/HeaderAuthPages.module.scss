@@ -1,81 +1,70 @@
 .header {
-  color: #333;
   display: flex;
+  height: 7.4375rem;
+  padding: 0.5rem 20rem;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 3.65rem;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  flex-shrink: 0;
+
+  border-bottom: 1px solid var(--Primary, #5834A8);
 }
 
-.link_container {
-  margin: 0 auto;
+.left {
+  display: flex;
+  align-items: center;
+}
+
+.logoContainer {
+  display: flex;
+  align-items: center;
+  gap: 0.13919rem;
+  align-self: stretch;
+}
+.logo {
+  width: 5.8125rem;
+  height: 4.8125rem;
+}
+
+.compName {
+  width: 5.92531rem;
+  height: 1.52175rem;
+}
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  align-self: stretch;
 
   a {
-    margin: 4rem;
+    text-decoration: none;
     color: var(--White, #FFF);
     text-align: center;
+    /* Body/B10-18 reg */
     font-family: "IBM Plex Sans";
     font-size: 1.125rem;
     font-style: normal;
     font-weight: 400;
-    line-height: 120%; /* 1.8rem */
-    text-decoration: none;
+    line-height: 120%; /* 1.35rem */
   }
-}
-.logo {
-  height: 3.2034rem;
-  width: 3.8154rem;
-}
 
-.getStartedBtn {
-  color: var(--Neutral-1, #FCFCFD);
-  display: flex;
-  padding: 1rem 2rem;
-  justify-content: center;
-  align-items: center;
-  gap: 0.33331rem;
-text-decoration: none;
-  border-radius: 0.5rem;
-  background: var(--Primary, #5834A8);
-}
-
-.logo_container {
-  display: flex;
-  height: 5.33331rem;
-  justify-content: center;
-  align-items: center;
-  gap: 0.66669rem;
-}
-
-
-.name {
-  width: 6.90394rem;
-  height: 1.77306rem;
-}
-.nav {
-  display: flex;
-  gap: 1rem;
 }
 
 .actions {
   display: flex;
-  padding-right: 2.66669rem;
-  justify-content: flex-end;
   align-items: center;
-  gap: 2rem;
-  align-self: stretch;
+  gap: 1rem;
+  height: 1.5rem;
 }
 
 .cta {
-  background: #3498db;
-  color: #fff;
+  background: #fff;
+  color: #6a11cb;
   padding: 0.5rem 1rem;
   border-radius: 4px;
   text-decoration: none;
 }
 
 .avatar {
-  width: 32px;
-  height: 32px;
+  height: 3rem;
   border-radius: 50%;
 }
