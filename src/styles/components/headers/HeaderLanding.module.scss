@@ -7,6 +7,23 @@
   flex-shrink: 0;
 
   border-bottom: 1px solid var(--Primary, #5834A8);
+
+  position: relative;
+  background: var(--Background-Dark, #080411);
+  z-index: 1;
+}
+
+.gradientBg {
+  position: absolute;
+  //left: -57.8125rem;
+  bottom: -21.5rem;
+  width: 55.375rem;
+  height: 23.5rem;
+  border-radius: 37rem;
+  opacity: var(--opacity-75, 0.75);
+  background: linear-gradient(180deg, rgba(88, 52, 168, 0.70) 0%, rgba(255, 255, 255, 0.00) 100%);
+  filter: blur(100px);
+  z-index: 0;
 }
 
 .left {
