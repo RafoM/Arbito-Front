@@ -26,7 +26,7 @@ const Header = ({ variant = 'main' }) => {
   if (variant === 'auth') {
     return (
       <header className={styles.header}>
-        <img src="/assets/images/header_logo.png" alt="Logo" className={styles.logo} />
+        <img src="/assets/images/header_logo.svg" alt="Logo" className={styles.logo} />
         <div className={styles.actions}>
           <LanguageSwitcher />
           {navLinks}

@@ -1,6 +1,25 @@
-/* Reset styles */
-* {
+@import 'src/styles/base/fonts';
+@import 'src/styles/base/typography';
+
+body {
+  font-family: $font-family-sf;
+  font-size: 16px;
+  line-height: 1.5;
+  color: white;
+  background: var(--Background-Dark, #080411);
+}
+
+:root {
+  --Background-Dark: #080411;
+}
+
+body,
+html,
+#root {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  height: 100%;
+  background-color: var(--Background-Dark);
+  color: #ffffff; /* optional for visibility */
+  font-family: 'Inter', sans-serif; /* or your font */
 }

@@ -67,7 +67,7 @@ const AppRouter = () => (
 
       {/* Protected routes - tools */}
       <Route element={<ProtectedRoute><MainLayout header={<Header variant="main" />} sidebar={<ToolSidebar />} /></ProtectedRoute>}>
-        <Route path="/scanner" element={<ScannerDashboardPage />} />
+        <Route path="/tools" element={<ScannerDashboardPage />} />
       </Route>
 
       {/* Fallback */}

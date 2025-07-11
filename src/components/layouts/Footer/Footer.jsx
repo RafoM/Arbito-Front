@@ -1,25 +1,26 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { FaXTwitter, FaLinkedinIn, FaTelegramPlane } from 'react-icons/fa';
+import {  FaLinkedinIn, FaTelegramPlane } from 'react-icons/fa';
 import styles from './Footer.module.scss';
 
 const Footer = () => {
   return (
     <footer className={styles.footer}>
       <div className={styles.topSection}>
-        <div className={styles.brand}>
-          <img src="/assets/images/logo.png" alt="Arbito Logo" className={styles.logo} />
-          <p className={styles.slogan}>Trade smarter, Grow faster</p>
-        </div>
-        <div className={styles.social}>
-          <a href="#" aria-label="X" className={styles.icon}><FaXTwitter /></a>
+          <div className={styles.brand}>
+              <img src="/assets/images/OCTOPUS.svg" alt="Arbito Logo" className={styles.logo}/>
+              <img src="/assets/images/arbito.svg" alt="Arbito Logo" className={styles.logo}/>
+
+          </div>
+          <div className={styles.social}>
+              {/*<a href="#" aria-label="X" className={styles.icon}><FaXTwitter /></a>*/}
           <a href="#" aria-label="LinkedIn" className={styles.icon}><FaLinkedinIn /></a>
           <a href="#" aria-label="Telegram" className={styles.icon}><FaTelegramPlane /></a>
         </div>
       </div>
       <div className={styles.middleSection}>
         <nav className={styles.nav}>
-          <Link to="/">Home</Link>
+          <Link to="/public">Home</Link>
           <Link to="/about">About</Link>
           <Link to="/features">Features</Link>
           <Link to="/terms">Terms of Service</Link>

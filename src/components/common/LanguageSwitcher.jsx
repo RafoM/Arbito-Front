@@ -28,7 +28,6 @@ export const LanguageSwitcher = () => {
       <div className={styles.current} onClick={toggle}>
         <img src={globeIcon} alt="language" className={styles.icon} />
         <span className={styles.lang}>{current}</span>
-        <span className={styles.arrow}>▼</span>
       </div>
       {open && (
         <ul className={styles.dropdown}>
